@@ -1,0 +1,45 @@
+:root {
+   --primary-color: #ebebeb;
+   --selected: #9de8ff;
+   --button: #e0e0e0;
+}
+
+* {
+   box-sizing: border-box;
+   outline: 0;
+   margin: 0;
+   padding: 0;
+}
+
+body {
+   background: var(--primary-color);
+   text-align: center;
+}
+
+.container {
+   max-width: 640px;
+   margin: 20px auto;
+   background: #FFF;
+   padding: 20px;
+   font-family: 'Montserrat', sans-serif;
+   font-size: 1.3em;
+   line-height: 1.5em;
+   border-radius: 10px;
+}
+
+.timer {
+   padding: .5em 0;
+   font-size: 3rem;
+}
+
+.btn {
+   margin: 0 .3em;
+   padding: .5em;
+   border: solid 2px #000;
+   border-radius: 10px;
+   transition: .5s;
+}
+
+.btn:hover {
+   background-color: #FFF;
+}
