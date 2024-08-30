@@ -7,10 +7,6 @@ function getSeconds(seconds) {
 }
 
 const clock = document.querySelector('.timer');
-const iniciar = document.querySelector('.iniciar');
-const pausar = document.querySelector('.pausar');
-const zerar = document.querySelector('.zerar');
-
 let seconds = 0;
 let timer;
 
@@ -19,34 +15,37 @@ function StartTimer() {
       seconds++;
       clock.innerHTML = getSeconds(seconds);
    }, 1000);
+   clock.style.color = "#000";
 }
 
 function PauseTimer(timer) {
    clearInterval(timer);
+   if (seconds > 0) {
+      clock.style.color = "#ff0000";
+   }
 }
 
 function RestartTimer(timer) {
    clearInterval(timer);
    clock.innerHTML = '00:00:00';
    seconds = 0;
+   clock.style.color = "#000";
 }
 
-const start = iniciar.addEventListener('click', (e) => {
-   e.preventDefault();
-   StartTimer();
-   clock.style.color = "#000";
-});
+document.addEventListener('click', (e) => {
+   const element = e.target;
+   if (element.classList.contains('iniciar')) {
+      e.preventDefault();
+      StartTimer();
+   }
 
-pausar.addEventListener('click', (e) => {
-   e.preventDefault();
-   PauseTimer(timer);
-   if (seconds > 0){
-      clock.style.color = "#ff0000";
-   }   
-});
+   if (element.classList.contains('pausar')) {
+      e.preventDefault();
+      PauseTimer(timer);
+   }
 
-zerar.addEventListener('click', (e) => {
-   e.preventDefault();
-   RestartTimer(timer);
-   clock.style.color = "#000";
+   if (element.classList.contains('zerar')) {
+      e.preventDefault();
+      RestartTimer(timer);
+   }
 });
